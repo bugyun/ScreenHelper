@@ -1,0 +1,2 @@
+include ':app', ':screen-plugin', ':screen-helper'
+rootProject.name = 'ScreenLayout'
