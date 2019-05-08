@@ -8,9 +8,7 @@ buildscript {
         //        }
         google()
         jcenter()
-        maven {
-            url "https://dl.bintray.com/bugyun/maven"
-        }
+        maven { url "https://dl.bintray.com/bugyun/maven" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0-alpha13'

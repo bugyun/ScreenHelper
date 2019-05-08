@@ -5,7 +5,7 @@ android 屏幕适配的两种方式
 ## 第一种适配方式
 使用方法
 
-在项目的根 build.gradle 中添加
+在项目的根 build.gradle 中添加,如果jcenter 仓库找不到项目，那么可以添加我的仓库
 
 ```java
 buildscript {
@@ -13,12 +13,20 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url "https://dl.bintray.com/bugyun/maven" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0-alpha13'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // 在此处添加
-        classpath 'vip.ruoyun.plugin:screen-plugin:1.0'
+        classpath 'vip.ruoyun.plugin:screen-plugin:1.0.0'
+    }
+}
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://dl.bintray.com/bugyun/maven" }
     }
 }
 ```
