@@ -3,20 +3,21 @@
 buildscript {
     ext.kotlin_version = '1.3.31'
     repositories {
-        maven {
-            //cooker-plugin 所在的仓库
-            //这里是发布在本地文件夹了
-            url uri('./release')
-        }
+        //        maven {
+        //            url uri('./release')//本地仓库，测试使用
+        //        }
         google()
         jcenter()
+        maven {
+            url "https://dl.bintray.com/bugyun/maven"
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0-alpha13'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-        classpath 'vip.ruoyun.plugin:screen-plugin:1.0'
+
+        classpath 'vip.ruoyun.plugin:screen-plugin:1.0.0'
+        classpath 'com.novoda:bintray-release:0.9.1'
     }
 }
 
@@ -24,6 +25,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven {
+            url "https://dl.bintray.com/bugyun/maven"
+        }
     }
 }
 

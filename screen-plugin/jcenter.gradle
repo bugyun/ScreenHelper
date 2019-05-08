@@ -1,0 +1,20 @@
+//上传 jcenter 的插件
+apply plugin: 'com.novoda.bintray-release'  // 新增
+
+/**
+ * 参考
+ * 'com.android.support.test.espresso:espresso-core:3.0.2'
+ *  group: 'com.android.support.test.espresso', name: 'espresso-core', version: '3.0.2'
+ */
+
+// 新增
+publish {
+    userOrg = 'bugyun'        //bintray.com用户名
+    groupId = 'vip.ruoyun.plugin'  //group
+    artifactId = 'screen-plugin'   //项目名称 name
+    publishVersion = '1.0.0'//版本号 version
+    desc = 'android 屏幕适配sw帮助类'//描述
+    website = 'https://github.com/bugyun/ScreenHelper' // 网址，github 地址
+}
+
+//   ./gradlew clean build bintrayUpload -PbintrayUser=bintray.user -PbintrayKey=bintray.apikey -PdryRun=false

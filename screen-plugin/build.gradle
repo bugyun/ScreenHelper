@@ -1,6 +1,6 @@
 apply plugin: 'groovy'
-//添加maven plugin, 用于发布我们的jar
-apply plugin: 'maven'
+apply plugin: 'maven'//添加maven plugin, 用于发布我们的jar
+//apply from: 'jcenter.gradle'//上传 jcenter 的插件
 
 dependencies {
     implementation gradleApi()
@@ -20,7 +20,7 @@ uploadArchives {
             //设置插件的GAV参数
             pom.groupId = 'vip.ruoyun.plugin'
             pom.artifactId = 'screen-plugin'
-            pom.version = 1.0
+            pom.version = '1.0.0'
             //文件发布到下面目录
             repository(url: uri('../release'))
         }
