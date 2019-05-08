@@ -3,9 +3,7 @@
 buildscript {
     ext.kotlin_version = '1.3.31'
     repositories {
-        //        maven {
-        //            url uri('./release')//本地仓库，测试使用
-        //        }
+        //maven { url uri('./release') }//本地仓库，测试使用
         google()
         jcenter()
         maven { url "https://dl.bintray.com/bugyun/maven" }
@@ -23,9 +21,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven {
-            url "https://dl.bintray.com/bugyun/maven"
-        }
+        maven { url "https://dl.bintray.com/bugyun/maven" }
     }
 }
 
