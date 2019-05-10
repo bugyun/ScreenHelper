@@ -13,7 +13,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-        maven { url "https://dl.bintray.com/bugyun/maven" }
+        //maven { url "https://dl.bintray.com/bugyun/maven" } //我的仓库,如果 jcenter 能找到，就不要添加
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0-alpha13'
@@ -26,7 +26,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url "https://dl.bintray.com/bugyun/maven" }
+        //maven { url "https://dl.bintray.com/bugyun/maven" } //我的仓库,如果 jcenter 能找到，就不要添加
     }
 }
 ```
@@ -84,7 +84,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-        maven { url "https://dl.bintray.com/bugyun/maven" }
+        //maven { url "https://dl.bintray.com/bugyun/maven" }//我的仓库,如果 jcenter 能找到，就不要添加
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0-alpha13'
@@ -96,7 +96,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url "https://dl.bintray.com/bugyun/maven" }
+        //maven { url "https://dl.bintray.com/bugyun/maven" }//我的仓库,如果 jcenter 能找到，就不要添加
     }
 }
 ```
