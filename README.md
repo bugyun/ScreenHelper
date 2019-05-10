@@ -64,7 +64,7 @@ screen {
 
 生成规则：只会生成 dp 后缀的属性值，根据 values 目录下的 dimens.xml,生成具体的文件。
 values 目录下的 dimens.xml
-```java
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="x20">20dp</dimen>
@@ -72,7 +72,7 @@ values 目录下的 dimens.xml
 </resources>
 ```
 生成的目标文件,values-sw320dp 目录下的 dimens.xml 文件
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <dimen name="x20">17.1dp</dimen>
@@ -84,7 +84,7 @@ values 目录下的 dimens.xml
 [ ![Download](https://api.bintray.com/packages/bugyun/maven/screen-helper/images/download.svg?version=1.0.0) ](https://bintray.com/bugyun/maven/screen-helper/1.0.0/link)
 
 在项目的根 build.gradle 中添加 jcenter ,如果jcenter 仓库找不到项目，那么可以添加我的仓库
-```
+```java
 buildscript {
     ext.kotlin_version = '1.3.31'
     repositories {
@@ -107,7 +107,7 @@ allprojects {
 }
 ```
 然后在子项目中的 build.gradle 文件中添加
-```
+```java
 dependencies {
     implementation 'vip.ruoyun.helper:screen-helper:1.0.0'
 }
