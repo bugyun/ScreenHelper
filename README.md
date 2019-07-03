@@ -1,9 +1,14 @@
 # ScreenHelper
 
-android 屏幕适配的两种方式
+android 屏幕适配的两种终结方式
+- Smallest Width 适配
+- 修改 DisplayMetrics.densityDpi 属性
 
+完美兼容 AndroidX 和 Android 库 ^_^ ，欢迎使用~~
 
-## 第一种适配方式 - sw 方式
+---
+
+## 第一种适配方式 - Smallest Width 方式
 插件版本：
 [ ![Download](https://api.bintray.com/packages/bugyun/maven/screen-plugin/images/download.svg?version=1.0.0) ](https://bintray.com/bugyun/maven/screen-plugin/1.0.0/link)
 
@@ -79,6 +84,8 @@ values 目录下的 dimens.xml
 </resources>
 ```
 
+---
+
 ## 第二种适配方式 - 通过代码来实现适配
 插件版本：
 [ ![Download](https://api.bintray.com/packages/bugyun/maven/screen-helper/images/download.svg?version=1.0.0) ](https://bintray.com/bugyun/maven/screen-helper/1.0.0/link)
@@ -93,7 +100,7 @@ buildscript {
         //maven { url "https://dl.bintray.com/bugyun/maven" }//我的仓库,如果 jcenter 能找到，就不要添加
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0-alpha13'
+        classpath 'com.android.tools.build:gradle:3.4.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -109,7 +116,7 @@ allprojects {
 然后在子项目中的 build.gradle 文件中添加
 ```java
 dependencies {
-    implementation 'vip.ruoyun.helper:screen-helper:1.0.0'
+    implementation 'vip.ruoyun.helper:screen-helper:1.0.1'
 }
 ```
 
@@ -140,4 +147,6 @@ public class App extends Application {
 - ScreenHelper.ScreenMode.HEIGHT_PT 以 pt 来适配，在 xml 中使用 pt 单位
 
 
-
+#### 版本变化
+- 1.0.1 ：优化 Resources.getSystem() 变量获取，由于此方法是 synchronized ，如果频繁调用会影响性能
+- 1.0.0 ：正式发版
