@@ -9,7 +9,7 @@ buildscript {
         maven { url "https://dl.bintray.com/bugyun/maven" }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0-alpha13'
+        classpath 'com.android.tools.build:gradle:3.4.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         classpath 'vip.ruoyun.plugin:screen-plugin:1.0.0'

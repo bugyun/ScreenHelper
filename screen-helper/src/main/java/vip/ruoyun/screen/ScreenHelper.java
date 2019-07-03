@@ -22,10 +22,13 @@ public class ScreenHelper {
     }
 
     private static List<Field> sMetricsFields;
+    private static DisplayMetrics systemDm;
 
     public static Resources applyAdapt(final Resources resources, float size, int screenMode) {
         DisplayMetrics activityDm = resources.getDisplayMetrics();
-        final DisplayMetrics systemDm = Resources.getSystem().getDisplayMetrics();
+        if (null == systemDm) {
+            systemDm = Resources.getSystem().getDisplayMetrics();
+        }
         change(screenMode, resources, activityDm, systemDm, size);
         //兼容其他手机
         if (sMetricsFields == null) {
@@ -74,14 +77,13 @@ public class ScreenHelper {
                 adaptWidthPixels(resources, activityDm, systemDm, size);
                 break;
             case ScreenMode.HEIGHT_PT:
-                adaptHeightXdpi(resources, size);
+                adaptHeightXdpi(resources, size, systemDm);
                 break;
             case ScreenMode.WIDTH_PT:
-                adaptWidthXdpi(resources, size);
+                adaptWidthXdpi(resources, size, systemDm);
                 break;
         }
     }
-
 
     private static void adaptWidthPixels(Resources resources, DisplayMetrics activityDm, DisplayMetrics systemDm, float designWidthPixels) {
         //确保设备在横屏和竖屏的显示大小,确保 dp 的大小值
@@ -101,17 +103,16 @@ public class ScreenHelper {
     /**
      * Adapt for the horizontal screen, and call it in [android.app.Activity.getResources].
      */
-    private static void adaptWidthXdpi(Resources resources, float designWidth) {
-        resources.getDisplayMetrics().xdpi = (Resources.getSystem().getDisplayMetrics().widthPixels * 72f) / designWidth;
+    private static void adaptWidthXdpi(Resources resources, float designWidth, DisplayMetrics systemDm) {
+        resources.getDisplayMetrics().xdpi = (systemDm.widthPixels * 72f) / designWidth;
     }
 
     /**
      * Adapt for the vertical screen, and call it in [android.app.Activity.getResources].
      */
-    private static void adaptHeightXdpi(Resources resources, float designHeight) {
-        resources.getDisplayMetrics().xdpi = (Resources.getSystem().getDisplayMetrics().heightPixels * 72f) / designHeight;
+    private static void adaptHeightXdpi(Resources resources, float designHeight, DisplayMetrics systemDm) {
+        resources.getDisplayMetrics().xdpi = (systemDm.heightPixels * 72f) / designHeight;
     }
-
 
     /**
      * @param resources The resources.
@@ -119,7 +120,9 @@ public class ScreenHelper {
      */
     public static Resources closeAdapt(Resources resources) {
         DisplayMetrics activityDm = resources.getDisplayMetrics();
-        final DisplayMetrics systemDm = Resources.getSystem().getDisplayMetrics();
+        if (null == systemDm) {
+            systemDm = Resources.getSystem().getDisplayMetrics();
+        }
         resetResources(activityDm, systemDm);
         //兼容其他手机
         if (sMetricsFields == null) {
