@@ -88,7 +88,7 @@ values 目录下的 dimens.xml
 
 ## 第二种适配方式 - 通过代码来实现适配
 插件版本：
-[ ![Download](https://api.bintray.com/packages/bugyun/maven/screen-helper/images/download.svg?version=1.0.0) ](https://bintray.com/bugyun/maven/screen-helper/1.0.0/link)
+[ ![Download](https://api.bintray.com/packages/bugyun/maven/screen-helper/images/download.svg?version=1.0.1) ](https://bintray.com/bugyun/maven/screen-helper/1.0.1/link)
 
 在项目的根 build.gradle 中添加 jcenter ,如果jcenter 仓库找不到项目，那么可以添加我的仓库
 ```java
