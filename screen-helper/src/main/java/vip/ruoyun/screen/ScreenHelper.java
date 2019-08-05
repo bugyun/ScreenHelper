@@ -153,7 +153,7 @@ public class ScreenHelper {
                     DisplayMetrics dm = (DisplayMetrics) metricsField.get(resources);
                     if (dm != null) resetResources(dm, systemDm);
                 } catch (Exception e) {
-                    Log.e("ScreenHelper", "applyMetricsFields: " + e);
+//                    Log.e("ScreenHelper", "applyMetricsFields: " + e);
                 }
             }
         }
@@ -208,7 +208,7 @@ public class ScreenHelper {
         try {
             return (DisplayMetrics) field.get(resources);
         } catch (Exception e) {
-            Log.e("ScreenHelper", "getMetricsFromField: " + e);
+//            Log.e("ScreenHelper", "getMetricsFromField: " + e);
             return null;
         }
     }
