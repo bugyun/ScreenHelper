@@ -14,19 +14,16 @@ android 屏幕适配的两种终结方式
 
 使用方法
 
-在项目的根 build.gradle 中添加,如果jcenter 仓库找不到项目，那么可以添加我的仓库
+在项目的根 build.gradle 中添加
 
 ```java
 buildscript {
-    ext.kotlin_version = '1.3.31'
     repositories {
         google()
         jcenter()
-        //maven { url "https://dl.bintray.com/bugyun/maven" } //我的仓库,如果 jcenter 能找到，就不要添加
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0-alpha13'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // 在此处添加
         classpath 'vip.ruoyun.plugin:screen-plugin:1.0.0'
     }
@@ -35,7 +32,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        //maven { url "https://dl.bintray.com/bugyun/maven" } //我的仓库,如果 jcenter 能找到，就不要添加
     }
 }
 ```
@@ -55,6 +51,7 @@ screen {
 ```
 
 如果 auto 设置为 true ,则每次 build 项目的时候自动生成 values-sw[]dp 文件
+
 如果 auto 设置为 false,则可以通过命令行,来生成文件.
 ```
 ./gradlew dimensCovert
@@ -86,7 +83,7 @@ values 目录下的 dimens.xml
 
 ---
 
-## 第二种适配方式 - 通过代码来实现适配
+## 第二种适配方式 - 修改 DisplayMetrics.densityDpi 属性
 插件版本：
 [ ![Download](https://api.bintray.com/packages/bugyun/maven/screen-helper/images/download.svg?version=1.0.1) ](https://bintray.com/bugyun/maven/screen-helper/1.0.1/link)
 
