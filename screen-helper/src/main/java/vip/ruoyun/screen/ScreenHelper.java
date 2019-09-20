@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
-import android.util.Log;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -63,7 +62,7 @@ public class ScreenHelper {
                     DisplayMetrics dm = (DisplayMetrics) metricsField.get(resources);
                     if (dm != null) change(screenMode, resources, dm, systemDm, size);
                 } catch (Exception e) {
-                    Log.e("ScreenHelper", "applyMetricsFields: " + e);
+//                    Log.e("ScreenHelper", "applyMetricsFields: " + e);
                 }
             }
         }
