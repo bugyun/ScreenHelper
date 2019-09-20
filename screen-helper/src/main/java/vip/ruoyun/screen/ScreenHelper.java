@@ -3,18 +3,24 @@ package vip.ruoyun.screen;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.support.annotation.IntDef;
 import android.util.DisplayMetrics;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ScreenHelper {
 
-    public interface ScreenMode {
-        int WIDTH_DP = 0x25;
-        int WIDTH_PT = 0x35;
-        int HEIGHT_PT = 0x45;
+    public static final int WIDTH_DP = 0x25;
+    public static final int WIDTH_PT = 0x35;
+    public static final int HEIGHT_PT = 0x45;
+
+    @IntDef({WIDTH_DP, WIDTH_PT, HEIGHT_PT})
+    @Retention(RetentionPolicy.CLASS)
+    @interface ScreenMode {
     }
 
     private ScreenHelper() {
@@ -23,7 +29,7 @@ public class ScreenHelper {
     private static List<Field> sMetricsFields;
     private static DisplayMetrics systemDm;
 
-    public static Resources applyAdapt(final Resources resources, float size, int screenMode) {
+    public static Resources applyAdapt(final Resources resources, float size, @ScreenMode int screenMode) {
         DisplayMetrics activityDm = resources.getDisplayMetrics();
         if (null == systemDm) {
             systemDm = Resources.getSystem().getDisplayMetrics();
@@ -70,15 +76,15 @@ public class ScreenHelper {
     }
 
 
-    private static void change(int screenMode, final Resources resources, DisplayMetrics activityDm, DisplayMetrics systemDm, float size) {
+    private static void change(@ScreenMode int screenMode, final Resources resources, DisplayMetrics activityDm, DisplayMetrics systemDm, float size) {
         switch (screenMode) {
-            case ScreenMode.WIDTH_DP:
+            case WIDTH_DP:
                 adaptWidthPixels(resources, activityDm, systemDm, size);
                 break;
-            case ScreenMode.HEIGHT_PT:
+            case HEIGHT_PT:
                 adaptHeightXdpi(resources, size, systemDm);
                 break;
-            case ScreenMode.WIDTH_PT:
+            case WIDTH_PT:
                 adaptWidthXdpi(resources, size, systemDm);
                 break;
         }
@@ -176,11 +182,11 @@ public class ScreenHelper {
     public static int value2px(Context context, float value, int screenMode) {
         DisplayMetrics metrics = context.getResources().getDisplayMetrics();
         switch (screenMode) {
-            case ScreenMode.WIDTH_DP:
+            case WIDTH_DP:
             default:
                 return (int) (value * metrics.density);
-            case ScreenMode.HEIGHT_PT:
-            case ScreenMode.WIDTH_PT:
+            case HEIGHT_PT:
+            case WIDTH_PT:
                 return (int) (value * metrics.xdpi / 72f + 0.5);
         }
     }
@@ -191,14 +197,14 @@ public class ScreenHelper {
      * @param pxValue The value of px.
      * @return value of pt
      */
-    public static int px2Value(Context context, float pxValue, int screenMode) {
+    public static int px2Value(Context context, float pxValue, @ScreenMode int screenMode) {
         DisplayMetrics metrics = context.getResources().getDisplayMetrics();
         switch (screenMode) {
-            case ScreenMode.WIDTH_DP:
+            case WIDTH_DP:
             default:
                 return (int) (pxValue / metrics.density);
-            case ScreenMode.HEIGHT_PT:
-            case ScreenMode.WIDTH_PT:
+            case HEIGHT_PT:
+            case WIDTH_PT:
                 return (int) (pxValue * 72 / metrics.xdpi + 0.5);
         }
     }

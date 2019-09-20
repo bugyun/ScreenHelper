@@ -19,7 +19,7 @@ class Helper {
         @JvmStatic
         fun apply(resources: Resources): Resources {
             if (isOpenScreen) {
-                return ScreenHelper.applyAdapt(resources, 480f, ScreenHelper.ScreenMode.WIDTH_DP)
+                return ScreenHelper.applyAdapt(resources, 480f, ScreenHelper.WIDTH_DP)
             } else {
                 return ScreenHelper.closeAdapt(resources)
             }
