@@ -87,16 +87,14 @@ values 目录下的 dimens.xml
 插件版本：
 [ ![Download](https://api.bintray.com/packages/bugyun/maven/screen-helper/images/download.svg?version=1.0.1) ](https://bintray.com/bugyun/maven/screen-helper/1.0.1/link)
 
-在项目的根 build.gradle 中添加 jcenter ,如果jcenter 仓库找不到项目，那么可以添加我的仓库
+在项目的根 build.gradle 中添加 jcenter 仓库
 ```java
 buildscript {
     repositories {
         google()
         jcenter()
     }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.1'
-    }
+    ...
 }
 
 allprojects {
