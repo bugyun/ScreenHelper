@@ -2,7 +2,7 @@
 
 android 屏幕适配的两种终结方式
 - Smallest Width 适配
-- 修改 DisplayMetrics.densityDpi 属性
+- DisplayMetrics.densityDpi 属性修改
 
 完美兼容 AndroidX 和 Android 库 ^_^ ，欢迎使用~~
 
@@ -83,7 +83,7 @@ values 目录下的 dimens.xml
 
 ---
 
-## 第二种适配方式 - 修改 DisplayMetrics.densityDpi 属性
+## 第二种适配方式 - DisplayMetrics.densityDpi 属性修改
 插件版本：
 [ ![Download](https://api.bintray.com/packages/bugyun/maven/screen-helper/images/download.svg?version=1.0.1) ](https://bintray.com/bugyun/maven/screen-helper/1.0.1/link)
 
