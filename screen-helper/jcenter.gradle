@@ -12,7 +12,7 @@ publish {
     userOrg = 'bugyun'        //bintray.com用户名
     groupId = 'vip.ruoyun.helper'    //jcenter group
     artifactId = 'screen-helper'   //项目名称 name
-    publishVersion = '1.0.1'//版本号 version
+    publishVersion = '1.0.2'//版本号 version
     desc = 'android 屏幕适配帮助类'//描述
     website = 'https://github.com/bugyun/ScreenHelper' // github 网址
 }

@@ -85,7 +85,7 @@ values 目录下的 dimens.xml
 
 ## 第二种适配方式 - DisplayMetrics.densityDpi 属性修改
 插件版本：
-[ ![Download](https://api.bintray.com/packages/bugyun/maven/screen-helper/images/download.svg?version=1.0.1) ](https://bintray.com/bugyun/maven/screen-helper/1.0.1/link)
+[ ![Download](https://api.bintray.com/packages/bugyun/maven/screen-helper/images/download.svg?version=1.0.2) ](https://bintray.com/bugyun/maven/screen-helper/1.0.2/link)
 
 在项目的根 build.gradle 中添加 jcenter 仓库
 ```java
@@ -107,7 +107,7 @@ allprojects {
 然后在子项目中的 build.gradle 文件中添加
 ```java
 dependencies {
-    implementation 'vip.ruoyun.helper:screen-helper:1.0.1'
+    implementation 'vip.ruoyun.helper:screen-helper:1.0.2'
 }
 ```
 
@@ -116,7 +116,7 @@ dependencies {
 public class MainActivity extends AppCompatActivity {
     @Override
     public Resources getResources() {
-        return ScreenHelper.applyAdapt(super.getResources(), 450f, ScreenHelper.ScreenMode.WIDTH_DP);
+        return ScreenHelper.applyAdapt(super.getResources(), 450f, ScreenHelper.WIDTH_DP);
     }
 }
 ```
@@ -127,17 +127,18 @@ public class MainActivity extends AppCompatActivity {
 public class App extends Application {
     @Override
     public Resources getResources() {
-        return ScreenHelper.applyAdapt(super.getResources(), 450f, ScreenHelper.ScreenMode.WIDTH_DP);
+        return ScreenHelper.applyAdapt(super.getResources(), 450f, ScreenHelper.WIDTH_DP);
     }
 }
 ```
 
 #### 类型
-- ScreenHelper.ScreenMode.WIDTH_DP 以 dp 来适配，在 xml 中使用 dp 单位
-- ScreenHelper.ScreenMode.WIDTH_PT 以 pt 来适配，在 xml 中使用 pt 单位
-- ScreenHelper.ScreenMode.HEIGHT_PT 以 pt 来适配，在 xml 中使用 pt 单位
+- ScreenHelper.WIDTH_DP 以 dp 来适配，在 xml 中使用 dp 单位
+- ScreenHelper.WIDTH_PT 以 pt 来适配，在 xml 中使用 pt 单位
+- ScreenHelper.HEIGHT_PT 以 pt 来适配，在 xml 中使用 pt 单位
 
 
 #### 版本变化
+- 1.0.2 ：优化传递 ScreenMode 的参数传递，去除不必要的 log
 - 1.0.1 ：优化 Resources.getSystem() 变量获取，由于此方法是 synchronized ，如果频繁调用会影响性能
 - 1.0.0 ：正式发版
