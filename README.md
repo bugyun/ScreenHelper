@@ -90,15 +90,12 @@ values 目录下的 dimens.xml
 在项目的根 build.gradle 中添加 jcenter ,如果jcenter 仓库找不到项目，那么可以添加我的仓库
 ```java
 buildscript {
-    ext.kotlin_version = '1.3.31'
     repositories {
         google()
         jcenter()
-        //maven { url "https://dl.bintray.com/bugyun/maven" }//我的仓库,如果 jcenter 能找到，就不要添加
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -106,7 +103,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        //maven { url "https://dl.bintray.com/bugyun/maven" }//我的仓库,如果 jcenter 能找到，就不要添加
     }
 }
 ```
