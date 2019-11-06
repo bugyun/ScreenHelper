@@ -1,5 +1,9 @@
 # ScreenHelper
 
+[屏幕原理](https://ruoyun.vip/post/android%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D-%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86/) 
+
+[适配原理](https://ruoyun.vip/post/android%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D-%E7%BB%88%E7%BB%93%E8%80%85/) 
+
 android 屏幕适配的两种终结方式
 - Smallest Width 适配
 - DisplayMetrics.densityDpi 属性修改
