@@ -1,5 +1,6 @@
 package vip.ruoyun.screen
 
+
 import org.dom4j.Document
 import org.dom4j.DocumentException
 import org.dom4j.DocumentHelper
@@ -29,6 +30,7 @@ class DimenTools {
     }
 
     public void dimensCovert() {
+        clear()
         read()
         for (Integer path : screenExt.smallestWidths) {
             String outPutFile = sourcePath + "/src/main/res/values-sw" + path + "dp/dimens.xml"
@@ -37,6 +39,27 @@ class DimenTools {
         }
     }
 
+
+    private void clear() {
+        try {
+            //找到文件res 下 values-sw 的文件
+            File resFile = new File(sourcePath + "/src/main/res")
+            LogM.log(resFile.toString())
+            resFile.listFiles(new FilenameFilter() {
+                @Override
+                boolean accept(File dir, String name) {
+                    //自定义过滤规则
+                    return name.startsWith("values-sw")
+                }
+            }).each { file ->
+                LogM.log(file.name)
+                com.android.utils.FileUtils.deletePath(file)
+            }
+        } catch (IOException e) {
+            LogM.log(e.getMessage())
+            e.printStackTrace()
+        }
+    }
 
     private void read() {
         try {

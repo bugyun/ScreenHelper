@@ -26,4 +26,12 @@
         android:text="Hello World!" />
 
 
+    <TextView
+        android:layout_width="@dimen/x20"
+        android:layout_height="@dimen/x20"
+        android:layout_marginTop="@dimen/x20"
+        android:background="@color/colorAccent"
+        android:text="Hello World!" />
+
+
 </LinearLayout>

@@ -10,7 +10,7 @@ screen {
     smallestWidths 320, 360, 384, 392, 400, 410, 411, 432, 480
     designSmallestWidth 375 //苹果设计稿750 × 1334   326ppi  计算公式 : px / (DPI / 160) = dp  结果为:368dp
     decimalFormat "#.#" //设置保留的小数 ( #.## 保留2位) ( #.# 保留1位)
-    log false
+    log true
     auto false
 }
 
