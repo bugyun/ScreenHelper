@@ -14,7 +14,7 @@ android 屏幕适配的两种终结方式
 
 ## 第一种适配方式 - Smallest Width 方式
 插件版本：
-[ ![Download](https://api.bintray.com/packages/bugyun/maven/screen-plugin/images/download.svg?version=1.0.0) ](https://bintray.com/bugyun/maven/screen-plugin/1.0.0/link)
+[ ![Download](https://api.bintray.com/packages/bugyun/maven/screen-plugin/images/download.svg?version=1.0.1) ](https://bintray.com/bugyun/maven/screen-plugin/1.0.1/link)
 
 使用方法
 
@@ -29,7 +29,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0-alpha13'
         // 在此处添加
-        classpath 'vip.ruoyun.plugin:screen-plugin:1.0.0'
+        classpath 'vip.ruoyun.plugin:screen-plugin:1.0.1'
     }
 }
 allprojects {
