@@ -1,6 +1,5 @@
 package vip.ruoyun.screen
 
-
 class LogM {
     /**
      * 打印日志

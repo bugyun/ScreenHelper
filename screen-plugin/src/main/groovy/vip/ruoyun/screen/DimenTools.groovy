@@ -1,6 +1,6 @@
 package vip.ruoyun.screen
 
-
+import com.android.utils.FileUtils
 import org.dom4j.Document
 import org.dom4j.DocumentException
 import org.dom4j.DocumentHelper
@@ -31,9 +31,18 @@ class DimenTools {
 
     //流程
     void dimensCovert() {
+        long beginTime = System.currentTimeMillis()
+        LogM.log("-------ScreenHelper plugin 插件开始-------")
+        LogM.log("===ScreenHelper plugin 清除文件开始===")
         clear()//1.清除之前的文件
+        LogM.log("===ScreenHelper plugin 清除文件结束===")
+        LogM.log("===ScreenHelper plugin 读取dimens文件开始===")
         read()//2.读取dimens文件
+        LogM.log("===ScreenHelper plugin 读取dimens文件结束===")
+        LogM.log("===ScreenHelper plugin 写入配置开始===")
         write()//3.创建文件，写入配置
+        LogM.log("===ScreenHelper plugin 写入配置结束===")
+        LogM.log("-------ScreenHelper plugin 插件结束,花费" + (System.currentTimeMillis() - beginTime) + "ms-------")
     }
     /**
      * 清除之前的文件
@@ -51,7 +60,7 @@ class DimenTools {
                 }
             }).each { file ->
                 LogM.log(file.name)
-                com.android.utils.FileUtils.deletePath(file)
+                FileUtils.deletePath(file)
             }
         } catch (IOException e) {
             LogM.log(e.getMessage())
