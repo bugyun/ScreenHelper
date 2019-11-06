@@ -29,17 +29,15 @@ class DimenTools {
         this.sourcePath = sourcePath
     }
 
-    public void dimensCovert() {
-        clear()
-        read()
-        for (Integer path : screenExt.smallestWidths) {
-            String outPutFile = sourcePath + "/src/main/res/values-sw" + path + "dp/dimens.xml"
-//            LogM.log(outPutFile)
-            write(outPutFile, path)
-        }
+    //流程
+    void dimensCovert() {
+        clear()//1.清除之前的文件
+        read()//2.读取dimens文件
+        write()//3.创建文件，写入配置
     }
-
-
+    /**
+     * 清除之前的文件
+     */
     private void clear() {
         try {
             //找到文件res 下 values-sw 的文件
@@ -61,6 +59,9 @@ class DimenTools {
         }
     }
 
+    /**
+     * 读取文件
+     */
     private void read() {
         try {
             File file = new File(sourcePath + "/src/main/res/values/" + screenExt.dimensFileName + ".xml")
@@ -84,6 +85,16 @@ class DimenTools {
     }
 
     /**
+     * 写入文件
+     */
+    private void write() {
+        for (Integer path : screenExt.smallestWidths) {
+            String outPutFile = sourcePath + "/src/main/res/values-sw" + path + "dp/dimens.xml"
+//            LogM.log(outPutFile)
+            writeSingleFile(outPutFile, path)
+        }
+    }
+    /**
      * 1920 * 1080   480 dpi的设备
      * 计算公式 : px / (DPI / 160) = dp
      * 计算过程 : 1080 / (480 / 160) = 360
@@ -91,7 +102,7 @@ class DimenTools {
      * @param fileName
      * @param size
      */
-    private void write(String fileName, int size) {
+    private void writeSingleFile(String fileName, int size) {
         Document document = DocumentHelper.createDocument()
         Element rootElement = document.addElement("resources") //创建跟节点 resources
         DecimalFormat decimalFormat = new DecimalFormat(screenExt.decimalFormat) //格式化小数点位数,四舍五入
