@@ -1,6 +1,6 @@
-![logo](https://github.com/bugyun/ScreenHelper/blob/master/art/screen_helper_logo.png?raw=true)
-
 # ScreenHelper
+
+![logo](https://github.com/bugyun/ScreenHelper/blob/master/art/screen_helper_logo.png?raw=true)
 
 android 屏幕适配的两种终结方式
 - Smallest Width 适配
